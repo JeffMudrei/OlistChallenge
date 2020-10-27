@@ -1,0 +1,26 @@
+{% extends "product/main.html" %}
+
+{% block content %}
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Import Categories (CSV)</h1>
+  </div>
+
+  <div class="d-flex align-items-center flex-wrap">
+    <form action="{% url 'product:import-categories' %}" enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+
+      <div class="table-responsive">
+        <table>
+          {{form.as_table}}
+
+          <tr>
+            <td colspan="2">
+              <input type="submit" class="btn btn-primary" value="Send">
+            </td>
+          </tr>
+        </table>
+      </div>
+
+    </form>
+  </div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Project CRUD Product</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="sidebar-sticky pt-3">
+
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'product:initial' %}">
+              <i class="fas fa-home"></i>
+              Initial
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'product:create' %}">
+              <i class="fas fa-plus-circle"></i>
+              Create Product
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'product:import-categories' %}">
+              <i class="fas fa-file-csv"></i>
+              Import Categories (CSV)
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
