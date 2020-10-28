@@ -7,9 +7,10 @@ from .models import Product, Category
 from django.contrib import messages
 
 class InitialView(ListView):
-    '''
-    Initial screen. Shows a screen with ...
-    '''
+    """
+    Initial screen. Shows a screen with a list of products, a left side menu, 
+    and filters to search for products
+    """
     template_name = 'product/main.html'
 
 
@@ -49,6 +50,9 @@ class InitialView(ListView):
         return queryset
 
 class CreateView(FormView):
+    """
+    CreateView. Shows a screen with the form to create a new product
+    """
     template_name = 'product/create.html'
     form_class = ProductForm
     success_url = '/'
@@ -63,6 +67,9 @@ class CreateView(FormView):
         return super().form_invalid(form)
 
 class EditView(UpdateView):
+    """
+    EditView Shows a screen with the form to update an existing product
+    """
     model = Product
     fields = ['category', 'name', 'description', 'price']
     template_name = 'product/update.html'
@@ -73,6 +80,9 @@ class EditView(UpdateView):
         return super().form_valid(form)
 
 class DeleteView(View):
+    """
+    DeleteView. Displays a message on success
+    """
     def get(self, request, **kwargs):
         product = Product.objects.get(id=kwargs['product_id'])
         product.delete()
@@ -80,6 +90,9 @@ class DeleteView(View):
         return redirect('product:initial')
 
 class ImportCategoriesView(FormView):
+    """
+    ImportCategoriesView. Displays a button to search for the file and another to send.
+    """
     template_name = 'product/import_categories.html'
     form_class = ImportCategoriesForm
     success_url = '/'
@@ -91,16 +104,3 @@ class ImportCategoriesView(FormView):
         else:
             messages.error(self.request, 'Error reading file.')
         return super().form_valid(form)
-
-#################################################################
-
-# rm db.sqlite3; rm */migrations/00*; python manage.py makemigrations; python manage.py migrate; python manage.py createsuperuser; python manage.py runserver
-
-
-# from django.views import View
-#
-# class InitialView(View):
-#     def get(self, request, **kwargs):
-#         context = {}
-#         context['object_list'] = Product.objects.all()
-#         return render(request, 'product/main.html', context)
