@@ -44,3 +44,8 @@ class ImportCategoriesForm(forms.Form):
             return True
         except:
             return False
+
+    def checking_extension(self, file):
+        name_file = file.name
+        extension =  name_file.split('.')[-1]
+        return extension

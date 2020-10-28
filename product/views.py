@@ -98,9 +98,12 @@ class ImportCategoriesView(FormView):
     success_url = '/'
 
     def form_valid(self, form):
-        ok = form.import_csv(self.request.FILES['file'])
-        if ok:
-            messages.success(self.request, 'Categories added.')
+        if form.checking_extension(form.cleaned_data['file']).lower() == 'csv':
+            ok = form.import_csv(self.request.FILES['file'])
+            if ok:
+                messages.success(self.request, 'Categories added.')
+            else:
+                messages.error(self.request, 'Error reading file.')
         else:
             messages.error(self.request, 'Error reading file.')
         return super().form_valid(form)
