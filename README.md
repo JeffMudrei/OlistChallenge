@@ -7,14 +7,6 @@ Add new products.
 Delete existing products.
 Change existing products.
 
-
-Developed with Python and Django framework.
-
-## It's possible:
-Add new products.
-Delete existing products.
-Change existing products.
-
 Developed with Python and Django framework.
 
 ## To use:
