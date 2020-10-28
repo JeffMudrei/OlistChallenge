@@ -22,7 +22,19 @@ You will know it is inside the virtual evironment if your terminal has **(myenv)
 ```
 (myenv) jeffmudrei @ JeffMudrei: ~ / product_categorie $
 ```
+### The following commands create the database:
+```
+$ python manage.py makemigrations
+$ python manage.py migrate
 
+```
+### Creating an admin user
+Type it:
+```
+$ python manage.py createsuperuser
+
+```
+Then enter a user, email and password to access the system admin.
 
 ## To upload the server:
 
@@ -45,6 +57,10 @@ Quit the server with CONTROL-C.
 Open your browser, we use Mozilla Firefox, and type the url:
 
 http://127.0.0.1:8000/
+
+To access the admin:
+
+http://127.0.0.1:8000/admin/
 
 Use the categories.csv file to register the categories and test the system.
 
